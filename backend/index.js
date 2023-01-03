@@ -17,12 +17,15 @@ app.listen(port, () => {
   console.log("Database is connect on port number" + port);
 });
 
+// const keyapi = "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";
+
 // api
 app.get("/", (req, res) => {
   let question = req.query.question;
+  let apikeydata = req.query.apiKeyd;
   try {
     const configuration = new Configuration({
-      apiKey: "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",
+      apiKey: apikeydata,
     });
     const openai = new OpenAIApi(configuration);
     const completion = openai.createCompletion({
@@ -46,9 +49,10 @@ app.get("/", (req, res) => {
 // api image
 app.get("/image", (req, res) => {
   let image = req.query.question;
+  let apikeydata = req.query.apiKeyd;
   try {
     const configuration = new Configuration({
-      apiKey: "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",
+      apiKey: apikeydata,
     });
     const openai = new OpenAIApi(configuration);
     const response = openai.createImage({
@@ -70,9 +74,10 @@ app.get("/image", (req, res) => {
 // api english
 app.get("/english", (req, res) => {
   let english = req.query.question;
+  let apikeydata = req.query.apiKeyd;
   try {
     const configuration = new Configuration({
-      apiKey: "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",
+      apiKey: apikeydata,
     });
     const openai = new OpenAIApi(configuration);
     const completion = openai.createCompletion({
